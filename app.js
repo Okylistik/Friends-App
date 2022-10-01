@@ -22,7 +22,6 @@ let usersData = [];
 let filterCards = [];
 let genderData = [];
 let sortsData = [];
-// пустая анкета
 
 function emptyList(who) {
   if (ulList[0] == undefined) {
@@ -40,25 +39,17 @@ const getUsers = async () => {
     showContent(usersData);
   } catch (error) {
     console.log(error);
-    // setTimeout(() => {
-    //   location.reload();
-    // }, 15000);
   }
 };
 
-//поиск имени
 searchName.addEventListener("input", updateValue);
 
-searchName.addEventListener("click", (e) => {
-  resetInput();
-});
+searchName.addEventListener("click", (e) => resetInput());
 
 function updateValue(e) {
-  // reset buttons
   resetRadio();
   if ((searchValue = "")) {
     filterCards = [];
-    console.log(filterCards);
   } else {
     showContent(usersData);
     const searchValue = e.target.value;
@@ -84,8 +75,6 @@ function resetInput() {
   }
 }
 
-// фильтр
-
 filters.addEventListener("click", filterData);
 
 function filterData() {
@@ -105,7 +94,6 @@ function genderFilter(data) {
     genderData[0] != undefined ? showContent(genderData) : emptyList("жіночих");
   } else showContent(data);
 }
-// сортировка по имени
 
 sorts.addEventListener("click", sortData);
 
@@ -142,8 +130,6 @@ function sortData(e) {
       break;
   }
 }
-
-// сортировка по возрасту
 
 getUsers();
 
